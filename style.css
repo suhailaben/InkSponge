@@ -27,6 +27,7 @@ h1 {
 
 a {
     color: #eb5e28;
+    font-weight: 900;
 }
 
 .theButton {
@@ -93,6 +94,12 @@ header {
 
     .collection {
         grid-template-columns: repeat(1, 1fr);
+    }
+
+    #frame {
+        border-radius: 0px;
+        margin: 0px;
+        padding: 5%;
     }
 }
 
