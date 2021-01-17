@@ -36,7 +36,7 @@ button {
     border-radius: 0.2em;
     box-shadow: 0 0.05em 0.25em 0 rgba(0,0,0,0.5);
     padding: 15px;
-    margin: 0px 0px 15px;
+    margin: 15px 0px 15px;
     font-family: 'Roboto Mono', monospace;
     font-size: 1em;
     font-weight: 900;
@@ -97,6 +97,19 @@ header {
     border-radius: 0.2em;
     box-shadow: 0 0.05em 0.25em 0 rgba(0,0,0,0.5);
     padding: 10%;
+
+}
+
+.collection > div > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    justify-items: center;
+}
+
+.collection > div > div > img {
+    margin: 25px 0px 0px 0px;
+    width: 50%;
 }
 
 
