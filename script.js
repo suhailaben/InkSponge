@@ -10,13 +10,6 @@ class Book {
         this.genre = genre;
         this.color = palette[Math.floor(Math.random() * 10)];
     }
-    readTheBook() {
-        if (this.read === 'unread') {
-            this.read = 'read';
-        } else {
-            this.read = 'unread';
-        }
-    }
 }
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
@@ -26,6 +19,16 @@ function removeAllChildNodes(parent) {
 function addBookToLibrary(yourBook) {
     myLibrary.unshift(yourBook);
 }
+if (!localStorage.getItem('myLibrary')) {
+    let sule = new Book('Elantris', 'Brandon Sanderson', 590, 'Fantasy', 'read');
+    let dobrev = new Book('I Am a Doloken', 'Maslamah Ben-Ghaly', 950, 'Non-Fiction', 'read');
+    addBookToLibrary(dobrev);
+    addBookToLibrary(sule);
+    updateDisplay()
+  } else {
+    myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+    updateDisplay()
+  }
 function updateDisplay() {
     const collection = document.querySelector(".collection");
     removeAllChildNodes(collection);
@@ -69,16 +72,7 @@ function updateDisplay() {
         })
     populateStorage();
 }
-if (!localStorage.getItem('myLibrary')) {
-    let sule = new Book('Elantris', 'Brandon Sanderson', 590, 'Fantasy', 'read');
-    let dobrev = new Book('I Am a Doloken', 'Maslamah Ben-Ghaly', 950, 'Non-Fiction', 'read');
-    addBookToLibrary(dobrev);
-    addBookToLibrary(sule);
-    updateDisplay()
-  } else {
-    myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
-    updateDisplay()
-  }
+
 function toggleForm() {
     let formy = document.getElementById('theForm');
     if (!formStatus) {
@@ -108,10 +102,18 @@ function removeBook(element) {
     myLibrary.splice(toBeRemoved, 1);
     updateDisplay();
 }
+function readTheBook(focus) {
+    if (focus.read === 'unread') {
+        focus.read = 'read';
+    } else {
+        focus.read = 'unread';
+    }
+}
 function changeBookStatus(element) {
     let toBeChanged = element.getAttribute('data-index');
     console.log(toBeChanged);
-    myLibrary[toBeChanged].readTheBook();
+    let focus = myLibrary[toBeChanged];
+    readTheBook(focus);
     updateDisplay();
 }
 function populateStorage() {
