@@ -1,7 +1,8 @@
 let myLibrary = [];
 let palette = ['f94144', 'f3722c', 'f8961e', 'f9844a', 'f9c74f', '90be6d', '43aa8b', '4d908e', '577590', '277da1'];
+let formStatus = false;
 class Book {
-    constructor(title, author, pages, read, genre) {
+    constructor(title, author, pages, genre, read) {
         this.title = title;
         this.author = author;
         this.pages = pages;
@@ -23,12 +24,11 @@ function removeAllChildNodes(parent) {
     }
 }
 function addBookToLibrary(yourBook) {
-    myLibrary.push(yourBook);
+    myLibrary.unshift(yourBook);
 }
 function updateDisplay() {
     const collection = document.querySelector(".collection");
     removeAllChildNodes(collection);
-
     for (i = 0; i < myLibrary.length; i++) {
         let element = myLibrary[i];
         let node = document.createElement('div');
@@ -68,14 +68,20 @@ function updateDisplay() {
         element.addEventListener('click', () => changeBookStatus(element));
         })
 }
-let hP = new Book('Harry Potter', 'Rowling', 300, 'read', 'Fantasy');
-let lOTR = new Book('Lord of the Rings', 'Tolkien', 400, 'unread', 'Fantasy');
-addBookToLibrary(hP);
-addBookToLibrary(lOTR);
+let sule = new Book('Elantris', 'Brandon Sanderson', 590, 'Fantasy', 'read');
+let dobrev = new Book('I Am a Doloken', 'Maslamah Ben-Ghaly', 950, 'Non-Fiction', 'read');
+addBookToLibrary(dobrev);
+addBookToLibrary(sule);
 updateDisplay();
 function toggleForm() {
     let formy = document.getElementById('theForm');
-    formy.style.display = formy.style.display == "none" ? "grid" : "none";
+    if (!formStatus) {
+        formy.style.display = 'grid';
+        formStatus = true;
+    } else {
+        formy.style.display = 'none';
+        formStatus = false;
+    }
 }
 document.getElementById('theButton').addEventListener('click', toggleForm);
 const theForm = document.querySelector('form')
@@ -84,8 +90,8 @@ theForm.onsubmit = function() {
     let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
     let pages = parseInt(document.getElementById('pages').value);
-    let genre = document.getElementById('read').value;
-    let read = document.getElementById('genre').value;
+    let genre = document.getElementById('genre').value;
+    let read = document.getElementById('read').value;
 
     let userBook = new Book(title, author, pages, genre, read);
     addBookToLibrary(userBook);
