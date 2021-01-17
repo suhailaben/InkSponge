@@ -30,23 +30,47 @@ a {
     font-weight: 900;
 }
 
-.theButton {
+button {
     background-color: #eb5e28;
     color: #fffcf2;
     border-radius: 0.2em;
     box-shadow: 0 0.05em 0.25em 0 rgba(0,0,0,0.5);
     padding: 15px;
-    margin: 15px 0px;
+    margin: 0px 0px 15px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1em;
+    font-weight: 900;
 }
 
-.theButton:hover {
+button:hover {
     background-color: #EF8257;
     display: grid;
 
 }
 
+input {
+    font-family: 'Roboto Mono', monospace;
+}
+
+select {
+    font-family: 'Roboto Mono', monospace;
+}
+
+#theForm {
+    background-color: #403d39;
+    color: #fffcf2;
+    border-radius: 0.2em;
+    box-shadow: 0 0.05em 0.25em 0 rgba(0,0,0,0.5);
+    padding: 15px;
+    margin: 0px 0px 15px;
+    display: none;
+    grid-template-columns: auto auto;
+    transition-duration: 2s;
+    grid-gap: 15px;
+}
+
 #logo {
-    height: 55%;
+    height: 52%;
     align-self: center;
     justify-self: flex-start;
 }
@@ -57,7 +81,7 @@ main {
 
 header {
     display: grid;
-    grid-template-columns: 16.5% auto;
+    grid-template-columns: 12% auto;
     margin-bottom: 3%;
 }
 
@@ -67,7 +91,7 @@ header {
     grid-template-columns: repeat(4, 1fr);
 }
 
-.book {
+.collection > div {
     background: #f94144;
     color: #fff;
     border-radius: 0.2em;
@@ -102,4 +126,3 @@ header {
         padding: 5%;
     }
 }
-

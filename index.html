@@ -16,23 +16,15 @@
         </header>
         <main>
             <p> Welcome to your new community. To start, let's customize your experience by selecting a few books you love. We have already selected some for you.</p>
-            <a class="theButton"> Add Book </a>
-            <div class="collection">
-                <div class="book">
-                    <h3>Harry Potter</h3>
-                    <ul>
-                        <li>Author: JK Rowling</li>
-                        <li>Pages: 300</li>
-                    </ul>
-                </div>
-                <div class="book" style="background-color: #43aa8b;">
-                    <h3>Lord of the Rings</h3>
-                    <ul>
-                        <li>Author: Tolkien</li>
-                        <li>Pages: 350</li>
-                    </ul>
-                </div>
-            </div>
+            <button id="theButton">Add Book</button>
+            <form id="theForm">
+                    Title: <input type="text" placeholder="Harry Potter and the Goblet of Fire" required>
+                    Author: <input type="text" placeholder="JK Rowling" required>
+                    Pages: <input type="text" placeholder="734" required>
+                    Status: <select><option>Read</option><option>Unread</option></select>
+                    <button type="submit" style="grid-column-start: 1; grid-column-end: 3;">Submit</button>
+            </form>
+            <div class="collection"></div>
         </main>
     </div>
     
