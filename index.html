@@ -18,10 +18,11 @@
             <p> Welcome to your new community. To start, let's customize your experience by selecting a few books you love. We have already selected some for you.</p>
             <button id="theButton">Add Book</button>
             <form id="theForm">
-                    Title: <input type="text" placeholder="Harry Potter and the Goblet of Fire" required>
-                    Author: <input type="text" placeholder="JK Rowling" required>
-                    Pages: <input type="text" placeholder="734" required>
-                    Status: <select><option>Read</option><option>Unread</option></select>
+                    Title: <input id="title" type="text" placeholder="Harry Potter and the Goblet of Fire" required>
+                    Author: <input id="author" type="text" placeholder="JK Rowling" required>
+                    Pages: <input id="pages" type="text" placeholder="734" required>
+                    Genre: <input id="genre" type="text" placeholder="Fantasy" required>
+                    Status: <select id="read"><option>Read</option><option>Unread</option></select>
                     <button type="submit" style="grid-column-start: 1; grid-column-end: 3;">Submit</button>
             </form>
             <div class="collection"></div>
