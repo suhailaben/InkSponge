@@ -67,12 +67,18 @@ function updateDisplay() {
     done.forEach((element) => {
         element.addEventListener('click', () => changeBookStatus(element));
         })
+    populateStorage();
 }
-let sule = new Book('Elantris', 'Brandon Sanderson', 590, 'Fantasy', 'read');
-let dobrev = new Book('I Am a Doloken', 'Maslamah Ben-Ghaly', 950, 'Non-Fiction', 'read');
-addBookToLibrary(dobrev);
-addBookToLibrary(sule);
-updateDisplay();
+if (!localStorage.getItem('myLibrary')) {
+    let sule = new Book('Elantris', 'Brandon Sanderson', 590, 'Fantasy', 'read');
+    let dobrev = new Book('I Am a Doloken', 'Maslamah Ben-Ghaly', 950, 'Non-Fiction', 'read');
+    addBookToLibrary(dobrev);
+    addBookToLibrary(sule);
+    updateDisplay()
+  } else {
+    myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+    updateDisplay()
+  }
 function toggleForm() {
     let formy = document.getElementById('theForm');
     if (!formStatus) {
@@ -107,4 +113,7 @@ function changeBookStatus(element) {
     console.log(toBeChanged);
     myLibrary[toBeChanged].readTheBook();
     updateDisplay();
+}
+function populateStorage() {
+    localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
 }
