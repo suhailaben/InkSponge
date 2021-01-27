@@ -70,7 +70,7 @@ select {
 }
 
 #logo {
-    height: 52%;
+    width: 100%;
     align-self: center;
     justify-self: flex-start;
 }
@@ -137,5 +137,9 @@ header {
         border-radius: 0px;
         margin: 0px;
         padding: 5%;
+    }
+
+    #logo {
+        width: 80%;
     }
 }
